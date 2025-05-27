@@ -1,42 +1,56 @@
-# Akıllı Ajan Router MCP
+# Steam İstatistikleri MCP
 
-Bu proje, kullanıcı mesajlarını analiz ederek uygun ajanı seçen bir MCP (Message Control Protocol) servisidir.
+Bu proje, Steam'in en çok oynanan oyunlarının anlık oyuncu istatistiklerini gösteren bir MCP (Message Control Protocol) uygulamasıdır.
 
 ## Özellikler
 
-- Yemek önerileri için özel ajan
-- Motivasyon ve koçluk için özel ajan
-- FastAPI tabanlı HTTP API
-- Smithery üzerinde deploy edilebilir
+- En çok oynanan 10 Steam oyununun listesi
+- Her oyun için anlık oyuncu sayısı
+- Oyuncu sayısına göre sıralama
 
 ## Kurulum
 
+1. Gerekli paketleri yükleyin:
 ```bash
-# Bağımlılıkları yükle
 pip install -r requirements.txt
+```
 
-# Uygulamayı çalıştır
+2. `.env` dosyası oluşturun ve Steam API anahtarınızı ekleyin:
+```
+STEAM_API_KEY=your_api_key_here
+```
+
+## Kullanım
+
+1. Sunucuyu başlatın:
+```bash
 python app.py
 ```
 
-## API Kullanımı
-
+2. API'yi kullanın:
 ```bash
-# Yemek önerisi al
-curl -X POST "http://localhost:8000/chat" \
-     -H "Content-Type: application/json" \
-     -d '{"text": "Akşam ne yesem?"}'
-
-# Motivasyon mesajı al
-curl -X POST "http://localhost:8000/chat" \
-     -H "Content-Type: application/json" \
-     -d '{"text": "Bugün biraz moralsizim"}'
+curl http://localhost:8000/top-games
 ```
 
-## Smithery Deployment
+## API Endpoint'leri
 
-Bu proje Smithery üzerinde otomatik olarak deploy edilebilir. GitHub repository'sine push yapıldığında otomatik deployment tetiklenir.
+- `GET /top-games`: En çok oynanan Steam oyunlarını ve oyuncu sayılarını döndürür
 
-## Lisans
+## Örnek Yanıt
 
-MIT 
+```json
+{
+  "status": "success",
+  "games": [
+    {
+      "game_name": "Counter-Strike 2",
+      "current_players": 1234567
+    },
+    {
+      "game_name": "Dota 2",
+      "current_players": 987654
+    }
+    // ... diğer oyunlar
+  ]
+}
+``` 
