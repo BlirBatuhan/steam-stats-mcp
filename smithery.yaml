@@ -1,0 +1,32 @@
+name: agent-router-mcp
+version: 1.0.0
+description: Akıllı Ajan Router MCP
+
+services:
+  mcp:
+    type: mcp
+    entrypoint: server.py
+    requirements:
+      - fastapi
+      - uvicorn
+      - pydantic
+      - mcp-server
+
+  api:
+    type: http
+    entrypoint: app.py
+    port: 8000
+    requirements:
+      - fastapi
+      - uvicorn
+      - pydantic
+      - mcp-server
+    environment:
+      - MCP_HOST=mcp
+      - MCP_PORT=8000
+
+deploy:
+  replicas: 1
+  resources:
+    cpu: 0.5
+    memory: 512Mi
