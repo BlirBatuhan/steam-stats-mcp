@@ -141,8 +141,7 @@ async def get_player_stats(steam_id: str) -> Dict[str, Any]:
     """
     try:
         # Steam API anahtarını al
-        api_key = os.getenv("STEAM_API_KEY")
-        print("api_key eklendi")
+        api_key = os.getenv("STEAM_API_KEY", "08C4CB50698FCCE935AC18AFB08EB432")
         if not api_key:
             return {
                 "status": "error",
