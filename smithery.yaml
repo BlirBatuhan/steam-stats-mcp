@@ -1,5 +1,8 @@
 name: steam-stats-mcp
-version: 1.0.0
+version: 1
+start:
+  command: ["python", "server.py"]
+  port: 8000
 description: Steam oyun istatistikleri için MCP servisi
 
 runtime: python3.9
