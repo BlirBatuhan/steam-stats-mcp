@@ -13,3 +13,13 @@ dependencies:
   - fastmcp
 
 entrypoint: server.py
+
+startCommand:
+  type: stdio
+  configSchema: {}
+  commandFunction: |-
+    (config) => ({
+      command: "python",
+      args: ["server.py"],
+      env: {}
+    })
