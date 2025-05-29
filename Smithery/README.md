@@ -1,5 +1,7 @@
 # Steam İstatistikleri MCP
 
+[![smithery badge](https://smithery.ai/badge/@BlirBatuhan/steam-stats-mcp)](https://smithery.ai/server/@BlirBatuhan/steam-stats-mcp)
+
 Bu proje, Steam'in en çok oynanan oyunlarının anlık oyuncu istatistiklerini gösteren bir MCP (Message Control Protocol) uygulamasıdır.
 
 ## Özellikler
@@ -10,6 +12,15 @@ Bu proje, Steam'in en çok oynanan oyunlarının anlık oyuncu istatistiklerini 
 
 ## Kurulum
 
+### Installing via Smithery
+
+To install steam-stats-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@BlirBatuhan/steam-stats-mcp):
+
+```bash
+npx -y @smithery/cli install @BlirBatuhan/steam-stats-mcp --client claude
+```
+
+### Manual Installation
 1. Gerekli paketleri yükleyin:
 ```bash
 pip install -r requirements.txt
